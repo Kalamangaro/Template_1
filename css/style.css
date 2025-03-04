@@ -1,0 +1,985 @@
+/* 
+    1- Common Styles
+    2- General Styles
+    3- Sections
+        3.0- Header Section
+        3.1- Home Section
+        3.2- About Section
+        3.3- Portfolio Section
+        3.4- Offer Section
+        3.5- Service Section
+        3.6- Prices Section
+        3.7- Team Section
+        3.8- Blog Page
+        3.9- Contact Section 
+        4.0- Footer Section 
+         */
+
+
+/* 1- Common Styles
+    - Opacity Hover
+    - overlay 
+    - Section Padding
+    - Hover effect 1 (left to right)
+    - Hover effect 2 (Top to Bottom)
+ */
+
+
+/* 1- Common Styles  */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.7)
+
+}
+
+.hover-opacity {
+    transition: opacity .3s; /*this works on all factors of element */
+}
+
+.hover-opacity:hover {
+    opacity: 0.8;
+}
+
+
+.ltr-effect,
+.tb-effect  {
+    position: relative;
+}
+
+.ltr-effect:after,
+.tb-effect:after {
+    position: absolute;
+    content: "";
+    background-color:#333;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.ltr-effect:after {
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.tb-effect:after {
+    height: 0%;
+    transition: height 0.5s;
+}
+.ltr-effect:hover:after {
+    width: 100%;
+}
+
+.tb-effect:hover:after {
+    height: 100%;
+}
+
+/* General Styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --maincolor : #6195ff;
+    --graycolor : #999;
+    --bg-gray : #f9f9f9;
+    --whitecolor : #fff
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+body, textarea {
+    font-family: "Varela Round", serif;
+}
+
+.clear {
+    clear: both;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: montserrat,sans-serif;
+}
+
+button{
+    font-family: inherit
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.pd-y {
+    padding: 120px 0;
+}
+
+.section-header {
+    text-align: center;
+    
+}
+
+.section-header .section-title {
+    text-transform: capitalize;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.section-header .line {
+    display: block;
+    height: 5px;
+    width: 60px;
+    margin: 0 auto 70px auto;
+    background-color: var(--maincolor);
+}
+
+/* 3- Sections
+3.0- Header Section */
+
+.header {
+    position: fixed; /* + position absolute, change item from diplay block to display inline-block */
+    width: 100%;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/* .header-content {
+    overflow: hidden; /*to solve float problem
+
+} */
+.logo {
+    width:40%;
+    float: left;
+}
+
+.header .logo img {
+    width: 20%;
+    margin-top: 15px;
+}
+.header .nav {
+    width: 60%;
+    float: left;
+    display: flex;
+    justify-content: right;
+    text-align: right;
+}
+
+.header .nav > ul > li {
+    list-style: none;
+    display: inline-block;
+    text-align: right;
+}
+
+.header .nav > ul > li > a {
+    font-size: 13;
+    color: white;
+    display: block;
+    padding: 35px 20px;
+}
+
+.header .nav > ul > li > a:after,
+.header .nav > ul > li > a.active:after {
+    content:"";
+    display: block;
+    width: 0;
+    height: 2px;    
+    background-color: var(--maincolor);
+    margin: 0.7px;
+    transition: width 0.5s;
+}
+
+
+.header .nav > ul > li > a.active:after,
+.header .nav > ul > li > a:hover:after {
+    width: 100%;
+}
+
+.dropdown {
+    position: relative;
+   
+}
+.dropdown-menu {
+    position: absolute;
+    background-color: var(--maincolor);
+    height: auto;
+    width: 100px;
+    text-align: center;
+    left: -50%;
+    top:70%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding:10px;
+    color: white;
+
+}
+.dropdown-menu a::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* 3.1- Home Section */
+
+.home {
+    height: 100vh;
+    background-image: url(../images/background1.jpg);
+    background-size: cover; /* css3*/
+    background-repeat: no-repeat ;
+    position: relative;
+}
+
+.home-content {
+    position: absolute;
+    width: 65%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.home .title {
+    color: white;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.home .home-description {
+    margin: 20px;
+    color: white;
+    letter-spacing: 1.5px;
+    line-height: 1.5;
+}
+
+.home .btn {
+    min-width: 160px;
+    padding: 15px 0;
+    margin: 0 2.5px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.home .btn-start {
+    background-color: white;
+}
+
+.home .btn-learn {
+    background-color: var(--maincolor);
+    color: white;
+}
+
+/* About Section */
+
+
+.about-content {
+    overflow: hidden;
+    
+}
+
+.about-item {
+    float: left;
+    width: 30%;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    padding: 50px 20px;
+}
+
+.about-item:hover .about-item-title{
+    color: white;
+}
+
+.about-item .icon {
+    color:var(--maincolor);
+    margin-bottom: 15px;
+}
+
+.about-item.mg {
+    margin: 0 5%;
+}
+
+.about-item-title {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color 0.5s;
+}
+
+.about-item-desc {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #999;
+}
+
+.about-item-link {
+    color:var(--maincolor)f;
+    text-transform: capitalize;
+}
+
+/* 3.3- Portfolio Section */
+
+.portfolio {
+    background-color: var(--bg-gray);
+}
+
+.portfolio-content {
+    overflow: hidden;
+}
+
+.portfolio-item {
+    width: 32%;
+    float: left;
+    margin-bottom: 25px;
+    position: relative;
+    padding: 20px;
+}
+
+.portfolio-item .layer-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility:hidden;
+    transition: opacity 0.5s;
+}
+
+.portfolio-item:hover .layer-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.layer-content .layer-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+
+.layer-content .category {
+    text-decoration: none;
+    color:var(--maincolor);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    transition: top 0.5s, opacity 0.5s;
+    transition-delay: 0.2s;
+}
+
+.layer-content-title {
+    font-size: 20px;
+    color: white;
+    margin-bottom:10px;
+    position: relative;
+    top: 10px;
+    transition: top 0.5s, opacity 0.5s;
+    transition-delay: 0.3s;
+}
+
+.layer-content a {
+    color: var(--bg-gray);
+    position: relative;
+    top: 10px;
+    transition: top 0.5s, opacity 0.5s;
+    transition-delay: 0.3s;
+}
+
+.layer-content a i {
+    display: inline-block;
+    width: 40px;
+    height:40px;
+    background-color:var(--maincolor);
+    line-height: 40px;
+    text-align: center;
+}
+
+.portfolio-item:hover .layer-content-title,
+.portfolio-item:hover .layer-content .category,
+.portfolio-item:hover .layer-content a {
+    top: 0;
+    opacity: 1;
+}
+
+.portfolio-item.mg {
+    margin: 0 2%;
+
+}
+.portfolio-item img {
+    width: 100%;
+}
+
+/* 3.4- Offer Section */
+
+.offer-content {
+    overflow: hidden;
+}
+
+.offer-item {
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px solid  #e8e8e8;
+    padding: 30px 15px 30px 70px;
+    position: relative;
+}
+
+.offer-item.mg {
+    margin: 0 5%;
+}
+
+.offer-item .icon {
+    position: absolute;
+    left: 15px;
+    top: 35px;
+    color: var(--maincolor);
+}
+
+.offer-item-title {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+}
+
+.offer-item-desc {
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #999;
+}
+
+.offer-item:hover .offer-item-title {
+    color: white;
+}
+
+/* 3.4- Service Section */
+
+.section {
+    background-color: var(--bg-gray);
+}
+
+.service-item {
+   
+    width:50%;
+    float: left;
+}
+
+.service-item .section-header {
+    text-align: left;
+}
+
+.service-item .section-header .line {
+    margin: 0 0 50px 0;
+}
+
+.service-item-desc {
+    padding-right: 20px;
+    line-height: 1.5;
+    color: #999;
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.service-item-list {
+    list-style: none;
+}
+
+.service-item-list li {
+    margin-bottom: 10px;
+    color: #999;
+}
+.service-item-list li i {
+    border: 1px solid var(--maincolor);
+    color: var(--maincolor);
+    width: 30px;
+    height: 30px;  
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.service-item-img img {
+    width: 100%;
+}
+
+.service-bullets {
+    list-style: none;
+    text-align: center;
+}
+
+.service-bullets li{
+    width: 10px;    
+    height: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin: 10px 5px;
+    border-radius: 50%;
+}
+
+.service-bullets li.active {
+    background-color:var(--maincolor);
+}
+
+.service-bullets li:hover {
+    background-color: var(--maincolor);
+}
+
+/* Numbers Section */
+
+.numbers {
+    position: relative;
+    background-image: url(../images/background2.jpg) ;
+    height: 300px;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.numbers-items {
+    overflow: hidden;
+    padding: 120px 0;
+}
+
+.number-item {
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+
+.number-item .icon {
+    color: var(--maincolor);
+    margin-bottom: 15px;
+}
+
+.number-item-title {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+}
+
+.number-item-text {
+    color: white;
+}
+
+/* Pricing Section */
+
+
+.pricing-plans {
+    overflow: hidden;
+}
+
+.pricing-item {
+    width: 30%;
+    float: left;
+    padding: 40px 15px;
+    border: 1px solid #e8e8e8 ;
+    text-align: center;
+}
+
+.pricing-item.mg {
+    margin: 0 5%;
+}
+
+.pricing-item-plan {
+    text-transform: uppercase;
+    font-style: 17px;
+    color:#999 ;
+    transition: color 0.3s;
+}
+
+.pricing-item-permonth {
+    width: 130px;
+    height: 130px;
+    padding: 20px 0;
+    margin: 20px auto;
+    border: 2px solid var(--maincolor);
+    border-radius: 50% ;
+    transition: color 0.3s;
+}
+
+.pricing-item-permonth .dollar {
+    font-size: 40px;
+
+}
+
+.pricing-item-permonth .month {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.pricing-list {
+    list-style: none;
+}
+
+.pricing-list li {
+    color: #999;
+    line-height: 2;
+    text-transform: uppercase;
+    letter-spacing: -0.5;
+}
+
+.pricing-item-purchase {
+    background: none;
+    border: 2px solid var(--maincolor);
+    display: block;
+    margin: 15px auto 0 auto;
+    width: 140px;
+    padding: 10px;
+    color: var(--maincolor);
+    text-transform: capitalize;
+}
+
+.pricing-item:hover .pricing-item-permonth {
+    color:white
+}
+
+.pricing-item:hover .pricing-item-plan {
+    color: var(--maincolor);
+}
+
+/* testimonial section */
+
+.testimonial {
+    position: relative;
+    background-image: url(../images/background3.jpg);
+    background-attachment: fixed;
+    height: 400px;
+}
+
+.testimonial-content {
+    overflow: hidden;
+    padding: 120px 0;
+    width: 60%;
+    margin: auto;
+}
+
+.testimonial-item {
+    width: 50%;
+    float: left;
+    color: white;
+}
+
+.testimonial-item .testimonial-toplayer {
+    padding: 10px 2px 40px 100px;
+    position: relative;
+    
+}
+
+.testimonial-item .testimonial-toplayer img {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius:50%;
+}
+
+.testimonial-item .testimonial-toplayer h2 {
+    text-transform: capitalize;
+    margin: 5px 0;
+}
+
+.testimonial-item .testimonial-toplayer span {
+    color: var(--maincolor);
+    text-transform: uppercase;
+}
+
+.testimonial-desc {
+    line-height: 1.5;
+    font-size: 17px;
+}
+
+
+/* Team Section */
+
+.team-content {
+    overflow: hidden;
+}
+
+.team-item {
+    width: 30%;
+    float: left;
+    background-color: #e8e8e8;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.team-item.mg {
+    margin: 0 5%;
+}
+.team-item .team-img {
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+
+.team-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.team-overlay a {
+    display: block;
+    width: 40px;
+    height:40px;
+    background-color: var(--maincolor);
+    color: white;
+    margin-left: auto;
+
+}
+
+.team-overlay a i {
+    line-height: 40px;
+}
+
+.team-item .team-img img {
+    width: 100%;
+}
+
+.team-item .team-info-title {
+    text-transform: capitalize;
+    color: #222;
+    margin: 10px 0;
+    transition: color 0.3s;
+}
+.team-item .text {
+    color: #999;
+    text-transform: uppercase;
+    font-style: 14px;
+    transition: color 0.3s;
+}
+
+.team-item:hover .team-overlay {
+    visibility: visible;
+    opacity: 1;
+}
+
+.team-item.tb-effect {
+    z-index: 1;
+}
+
+.team-item:hover .text {
+    color: var(--maincolor);
+}
+
+.team-item:hover .team-info-title {
+    color: white;
+}
+
+/* blog section */
+
+.blog {
+    background-color: var(--bg-gray);
+}
+
+.blog-item {
+    width: 30%;
+    background-color: white;
+    float: left;
+}
+
+.blog-content {
+    overflow: hidden;
+}
+
+.blog-item-text {
+    padding: 20px;
+}
+.blog-item.mg {
+    margin: 0 5%;
+}
+.blog-item-image img {
+    width: 100%;
+}
+
+.blog-list {
+    width:70%;
+    list-style: none;
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+.blog-list li {
+    display: inline-block;
+    margin: 5px;
+
+}
+
+.blog-list li i {
+    color: var(--maincolor);
+}
+
+.blog-item-title {
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.blog-item-text .blog-text {
+    font-size: 15px;
+    line-height: 1.2;
+    letter-spacing: 0.5;
+    color: #999;
+}
+
+.blog-item .blog-link {
+    text-transform: capitalize;
+    display: block;
+    color:var(--maincolor);
+    padding: 20 0 30 0;
+}
+
+/* Form Section */
+
+.form {
+    background-color: var(--bg-gray);
+}
+.form-content{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.form-item {
+    width: 30%;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: bold;
+    float: left;
+}
+
+.form-item i {
+    color:var(--maincolor);
+    padding: 10px;
+}
+
+.form-item-text {
+    margin-bottom: 15px;
+}
+
+.form-item-number {
+    color: #999;
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.form-item-number.email {
+    text-transform: none;
+}
+
+.form-item.mg {
+    margin: 0 5%;
+}
+
+.form form{
+    width: 60%;
+    margin: 30px auto;
+}
+
+.form form input, .form form textarea{
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    border: 0;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #eee;
+    padding: 5 10px;
+    margin-bottom: 10px;
+}
+
+.form .input-content {
+    overflow: hidden;
+}
+
+.form .input-content input {
+    width:49%;
+    float: left;
+}
+
+.form .input-content input:last-child{
+    margin-left: 2%
+}
+
+.form form input[type=submit] {
+    width: 180px;
+    background: var(--maincolor);
+    color: #fff;
+    border:0;
+    cursor: pointer;
+    margin:auto;
+    display: block;
+    font-family: inherit;
+    transition: opacity 0.3s;
+}
+
+/* Footer Section */
+
+.footer {
+    background-color:#1c1d21;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.footer img {
+    width:10%;
+}
+
+.social {
+    list-style: none;
+    margin: 15px 0;
+}
+
+.social li {
+    display: inline-block;
+    
+}
+.social li a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: var(--maincolor);
+    color: white;
+    margin: 0 2.5px;
+    border-radius: 5%;
+}
+.social li a i {
+    line-height: 50px;
+}
+
+.footer .copyright {
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.footer .copyright a {
+    text-decoration: none;
+    color: var(--maincolor);
+}
